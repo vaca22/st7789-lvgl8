@@ -26,9 +26,6 @@ static void gui_task(void *arg)
    lv_color_t *buf1 = heap_caps_malloc(DISP_BUF_SIZE * 2, MALLOC_CAP_DMA);
    lv_color_t *buf2 = heap_caps_malloc(DISP_BUF_SIZE * 2, MALLOC_CAP_DMA);
 
-   // lv_color_t *buf1 = (lv_color_t *)heap_caps_malloc(DISP_BUF_SIZE * 2, MALLOC_CAP_SPIRAM | MALLOC_CAP_8BIT);
-	// lv_color_t *buf2 = (lv_color_t *)heap_caps_malloc(DISP_BUF_SIZE * 2, MALLOC_CAP_SPIRAM | MALLOC_CAP_8BIT);
-
 
    lv_disp_draw_buf_init(&draw_buf, buf1, buf2, DLV_HOR_RES_MAX * DLV_VER_RES_MAX); /*Initialize the display buffer*/
 
@@ -39,16 +36,9 @@ static void gui_task(void *arg)
    disp_drv.hor_res = 240;                /*Set the horizontal resolution in pixels*/
    disp_drv.ver_res = 240;                /*Set the vertical resolution in pixels*/
    lv_disp_drv_register(&disp_drv);       /*Register the driver and save the created display objects*/
-   /*触摸屏输入接口配置*/
-	// lv_indev_drv_t indev_drv;
-	// lv_indev_drv_init(&indev_drv);
-	// indev_drv.read_cb = touch_driver_read;
-	// indev_drv.type = LV_INDEV_TYPE_POINTER;
-	// lv_indev_drv_register(&indev_drv);
 
-   // esp_register_freertos_tick_hook(lv_tick_task);
    
-	/* Create and start a periodic timer interrupt to call lv_tick_inc */
+
 	const esp_timer_create_args_t periodic_timer_args = {
 		.callback = &lv_tick_task,
 		.name = "periodic_gui"};
