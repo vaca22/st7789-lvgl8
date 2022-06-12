@@ -1,12 +1,3 @@
-/*
- * @Descripttion :  
- * @version      :  
- * @Author       : Kevincoooool
- * @Date         : 2021-09-04 16:11:59
- * @LastEditors: Please set LastEditors
- * @LastEditTime: 2022-01-19 11:53:59
- * @FilePath: \3.lvgl_v8\main\main.c
- */
 #include <stdio.h>
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
